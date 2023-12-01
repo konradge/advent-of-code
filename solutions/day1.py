@@ -23,7 +23,7 @@ def part1(input: str):
         if len(line) > 0:
             res += int(line[0] + line[-1])
         else:
-            raise RuntimeError("% has no number in it" % line)
+            res += 0
     return str(res)
 
 
