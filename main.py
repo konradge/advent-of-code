@@ -16,7 +16,7 @@ def prepareFiles(day, verbose):
 
     files.createEmpty("inputs/day" + str(day) + "_example", verbose)
 
-    # files.copy("tests/test_template.py", "tests/test_" + str(day) + ".py", verbose)
+    files.copy("solutions/day_template.py", "solutions/day" + str(day) + ".py", verbose)
 
 
 def runSolution(dayNumber, verbose, example):
