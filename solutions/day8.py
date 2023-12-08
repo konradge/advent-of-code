@@ -17,10 +17,10 @@ def part1(input: str) -> str:
     instructions, network = prepare(input)
     current = "AAA"
     steps = 0
-    # while current != "ZZZ":
-    #     instruction = instructions[steps % len(instructions)]
-    #     current = network[current][instruction]
-    #     steps += 1
+    while current != "ZZZ":
+        instruction = instructions[steps % len(instructions)]
+        current = network[current][instruction]
+        steps += 1
     return str(steps)
 
 
