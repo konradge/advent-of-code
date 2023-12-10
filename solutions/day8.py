@@ -17,10 +17,10 @@ def part1(input: str) -> str:
     instructions, network = prepare(input)
     current = "AAA"
     steps = 0
-    while current != "ZZZ":
-        instruction = instructions[steps % len(instructions)]
-        current = network[current][instruction]
-        steps += 1
+    # while current != "ZZZ":
+    #     instruction = instructions[steps % len(instructions)]
+    #     current = network[current][instruction]
+    #     steps += 1
     return str(steps)
 
 
@@ -33,30 +33,46 @@ def atTarget(currents: list[str]):
     return yes
 
 
-def findZs(instructions: list[int], network: dict[str, tuple[str, str]], start: str):
+def findFirstZ(instructions: list[int], network: dict[str, tuple[str, str]], start):
     current = start
     steps = 0
-    visited: dict[str, int] = dict()
-    stop = False
-    visited[start] = 0
+    while not current.endswith("Z"):
+        instruction = instructions[steps % len(instructions)]
+        current = network[current][instruction]
+        steps += 1
+    return steps, current
+
+
+def findZs(
+    instructions: list[int],
+    network: dict[str, tuple[str, str]],
+    start: str,
+    offset: int,
+):
+    current = start
+    steps = offset
+    visited: dict[tuple[str, int], int] = dict()
+    visited[(start, 0)] = steps
     while True:
         instruction = instructions[steps % len(instructions)]
         current = network[current][instruction]
         steps += 1
-        if visited.get(current) != None:
-            if stop:
-                break
-            stop = True
-            visited = dict()
-        visited[current] = steps
-    print(visited)
-    return {key: visited[key] for key in visited.keys() if key.endswith("Z")}
+        if visited.get((current, steps % len(instructions))) != None:
+            break
+        visited[(current, steps % len(instructions))] = steps
+    d = {
+        key[0]: (visited[key] % len(instructions)) + offset
+        for key in visited.keys()
+        if key[0].endswith("Z")
+    }
+    return (d, len(visited.keys()))
 
 
 def part2(input: str) -> str:
     instructions, network = prepare(input)
-    currents = [node for node in network.keys() if node.endswith("Z")]
+    currents = [node for node in network.keys() if node.endswith("A")]
     steps = 0
     for c in currents:
-        print(findZs(instructions, network, c))
+        offset, start = findFirstZ(instructions, network, c)
+        print(findZs(instructions, network, start, offset))
     return str(steps)
