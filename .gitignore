@@ -1,3 +1,10 @@
 **/__pycache__/**
-inputs/**
+**/inputs/**
+**/Inputs/**
+**.class
+example
+input
 .env
+node_modules
+**/out/**
+**/lib/**
