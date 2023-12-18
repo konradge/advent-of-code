@@ -15,7 +15,8 @@ def move(
 
     key = (pos[0], pos[1], vel[0], vel[1])
     if pos[1] == 1:
-        print("In 2")
+        # print("In 2")
+        pass
     if moveMemory.get(key) == None:
         pos += vel
         moveMemory[key] = set()
@@ -43,7 +44,8 @@ def move(
                 for x in move(grid, (pos, -1 * vel.astype(int))):
                     moveMemory[key].add(x)
     else:
-        print(pos)
+        # print(pos)
+        pass
 
     return moveMemory.setdefault(key, set())
 
@@ -63,11 +65,12 @@ def part1(input: str) -> str:
     grid = input.splitlines()
     beam = (np.array([0, -1]), np.array([0, 1]))
 
-    energized = move(grid, beam)
+    # energized = move(grid, beam)
 
     # print(energizedPositions)
 
-    return str(len(energized))
+    # return str(len(energized))
+    return ""
 
 
 def part2(input: str) -> str:
@@ -75,10 +78,11 @@ def part2(input: str) -> str:
     beam = (np.array([0, -1]), np.array([0, 1]))
     N = len(input.splitlines())
     maxEnergy = 0
-    print("\n".join([str((x, len(moveMemory[x]))) for x in moveMemory.keys()]))
+    # print("\n".join([str((x, len(moveMemory[x]))) for x in moveMemory.keys()]))
     energized = move(grid, (np.array([-1, 3]), np.array([1, 0])))
-    printGrid(grid, energized)
+    # printGrid(grid, energized)
     for i in reversed(range(N)):
+        print(i)
         # right
         beam = (np.array([i, -1]), np.array([0, 1]))
         maxEnergy = max(maxEnergy, len(move(grid, beam)))
