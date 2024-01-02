@@ -1,4 +1,4 @@
-# A collection of all solutions of Advent-of-Code I have done so far
+# A collection of [advent-of-code](adventofcode.com) solutions
 
 | **Year** | **Used Programming Languages**                 | **Completed Days**     |
 | -------- | ---------------------------------------------- | ---------------------- |
