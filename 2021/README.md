@@ -50,3 +50,5 @@ This will initilize a folder for the given day with a
 ```
     npm run test -- <day to test>
 ```
+
+Note that this may fail on the actual input as it is different for every user.

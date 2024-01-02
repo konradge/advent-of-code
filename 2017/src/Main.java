@@ -1,9 +1,5 @@
 import Days.*;
 import Utils.IO.FileUtils;
-import Utils.IO.StringUtils;
-
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class Main {
 
@@ -61,7 +57,7 @@ public class Main {
         if (dayInstance == null) {
             throw new RuntimeException("Day number " + day + " has not been implemented yet!");
         }
-        String input = FileUtils.readFile("./src/Inputs/day" + day + ".txt").replaceAll("\\r", "");
+        String input = FileUtils.readFile("../inputs/day" + day + ".txt").replaceAll("\\r", "");
         dayInstance.init(input);
         System.out.println("+++++++++Day " + day + "+++++++++++");
         System.out.println("--------Part 1-----------");

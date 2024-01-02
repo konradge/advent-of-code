@@ -4,26 +4,23 @@ Here are the solution to (**all** of) the Exercises to the [AoC2020](https://adv
 
 ## Usage
 
-### Days 1-3 and 7-22:
+### Days 1-3 and 7-22 (Java):
 
-The code for these days is written in Java, so you need to first **compile**
-
-```bash
-cd src
-javac -d out Start2020.java
-```
-
-and then **run** the program
+#### Compile
 
 ```bash
-java -classpath out Start2020 <Day>
+make all
 ```
 
-Where <Day> indicates the day number, you want to run.
+#### Run
 
-**This only works in some terminals, for example the [Windows Terminal](https://www.microsoft.com/store/productId/9N0DX20HK701)**
+```bash
+make day=<day> run
+```
 
-### Days 4 and 5
+Where \<day> is the number of the day that should be run
+
+### Days 4 and 5 (Javascript)
 
 The code for these days is written in JavaScript, so you may run it with Node.js:
 
@@ -32,9 +29,9 @@ cd src
 node Day<Number>.js
 ```
 
-Where _<Number>_ is either 4 or 5
+Where \<day> is either 4 or 5
 
-### Day 6
+### Day 6 (Scratch)
 
 Day 6 is "written" in [Scratch](https://scratch.mit.edu/).
-Click for [Part 1](https://scratch.mit.edu/projects/459628702/) and [Part 2](https://scratch.mit.edu/projects/459642523/) on the links
+Click for [Part 1](https://scratch.mit.edu/projects/459628702/) and [Part 2](https://scratch.mit.edu/projects/459642523/)
